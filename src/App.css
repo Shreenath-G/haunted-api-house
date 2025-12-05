@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #000;
+  color: #f8f8f8;
+  font-family: 'Courier New', monospace;
+  overflow: hidden;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #0a0010 0%, #1a0033 50%, #0d0d1a 100%);
+  position: relative;
+}
+
+/* Halloween background effects */
+.app::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(ellipse at 20% 80%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(75, 0, 130, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(255, 140, 0, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+  animation: ambientPulse 8s ease-in-out infinite;
+}
+
+@keyframes ambientPulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* Floating particles */
+.app::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(2px 2px at 10% 20%, rgba(255, 165, 0, 0.3), transparent),
+    radial-gradient(2px 2px at 30% 70%, rgba(255, 100, 0, 0.2), transparent),
+    radial-gradient(2px 2px at 70% 30%, rgba(200, 100, 255, 0.2), transparent),
+    radial-gradient(2px 2px at 90% 80%, rgba(255, 200, 100, 0.3), transparent),
+    radial-gradient(1px 1px at 50% 50%, rgba(255, 255, 255, 0.1), transparent);
+  background-size: 200px 200px;
+  animation: floatParticles 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes floatParticles {
+  0% { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(-200px) translateX(50px); }
+}
+
+/* CRT Effect */
+.crt-effect {
+  position: relative;
+}
+
+.crt-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%,
+    rgba(0, 0, 0, 0.2) 50%
+  );
+  background-size: 100% 3px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.crt-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(18, 16, 16, 0.05);
+  pointer-events: none;
+  z-index: 10;
+  animation: flicker 0.15s infinite;
+}
+
+@keyframes flicker {
+  0% { opacity: 0.27861; }
+  5% { opacity: 0.34769; }
+  10% { opacity: 0.23604; }
+  15% { opacity: 0.90626; }
+  20% { opacity: 0.18128; }
+  25% { opacity: 0.83891; }
+  30% { opacity: 0.65583; }
+  35% { opacity: 0.67807; }
+  40% { opacity: 0.26559; }
+  45% { opacity: 0.84693; }
+  50% { opacity: 0.96019; }
+  55% { opacity: 0.08594; }
+  60% { opacity: 0.20313; }
+  65% { opacity: 0.71988; }
+  70% { opacity: 0.53455; }
+  75% { opacity: 0.37288; }
+  80% { opacity: 0.71428; }
+  85% { opacity: 0.70419; }
+  90% { opacity: 0.7003; }
+  95% { opacity: 0.36108; }
+  100% { opacity: 0.24387; }
+}
+
+/* Phosphor glow - Halloween orange/purple */
+.phosphor-glow {
+  box-shadow: 
+    0 0 30px rgba(255, 100, 0, 0.4),
+    0 0 60px rgba(139, 0, 139, 0.3),
+    inset 0 0 20px rgba(255, 140, 0, 0.1);
+}
